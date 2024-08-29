@@ -81,12 +81,11 @@ function App() {
         maxId = list[i].id;
       }
     }
-
     return ++maxId;
   }
   const addTodo = () => {
     setList([...list, { ...obj, id: getNextId() }]);
-    console.log(TASKS)
+    setObj(initTask);
   }
   const deleteTodo = (id) => {
     const modified =list.filter((todo) => todo.id !== id);
