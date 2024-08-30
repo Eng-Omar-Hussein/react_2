@@ -31,7 +31,6 @@ function App() {
   const deleteTodo = (id) => {
     const modified =list.filter((todo) => todo.id !== id);
     setList(modified);
-    console.log("first")
   }
   return (
     <div className="container todo-container">
