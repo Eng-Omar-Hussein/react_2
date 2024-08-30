@@ -29,15 +29,22 @@ function App() {
     setObj(initTask);
   }
   const deleteTodo = (id) => {
-    const modified =list.filter((todo) => todo.id !== id);
+    const modified = list.filter((todo) => todo.id !== id);
     setList(modified);
+  }
+  const completeTodo = (task) => {
+    setList(list.map(todo =>
+      todo.id === task.id
+        ? { ...todo, completed: !todo.completed }
+        : todo
+    ));
   }
   return (
     <div className="container todo-container">
       <h1 className="text-center">To-Do Application</h1>
       <TodoFormComponent obj={obj} setObj={setObj} addTodo={addTodo} />
-      <TodoListComponent title="Pending Tasks" tasks={list.filter((task) => !task.completed)} deleteTodo={deleteTodo} />
-      <TodoListComponent title="Completed Tasks" tasks={list.filter((task) => task.completed)} deleteTodo={deleteTodo} />
+      <TodoListComponent title="Pending Tasks" tasks={list.filter((task) => !task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} />
+      <TodoListComponent title="Completed Tasks" tasks={list.filter((task) => task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} />
     </div>
   );
 

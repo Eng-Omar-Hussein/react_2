@@ -5,6 +5,9 @@ const TodoItemComponent = (props) => {
     const handelDelete=(e)=>{
         props.deleteTodo(parseInt(e.parentElement.parentElement.querySelector("span").innerText.split(".")[0]));
     }
+    const handelCompleted=(e)=>{
+        props.completeTodo(props.task);
+    }
     return (
         <li className={`list-group-item ${props.task.completed ? Styles.completed : ""}`} >
             <div>
@@ -12,7 +15,7 @@ const TodoItemComponent = (props) => {
                     {props.task.id}. {props.task.title} - {props.task.dueDate}
                 </span>
                 <div>
-                    <button className="btn btn-success btn-sm me-2">
+                    <button onClick={(e)=>handelCompleted(e.target)} className="btn btn-success btn-sm me-2">
                         {props.task.completed ? "Undo" : "Complete"}
                     </button>
                     <button
