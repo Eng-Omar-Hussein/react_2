@@ -6,9 +6,9 @@ const TASKS = [
   { id: 1, title: "Task One", dueDate: '12/12/2012', completed: true },
   { id: 2, title: "Task Two", dueDate: '12/12/2012', completed: true },
   { id: 3, title: "Task Three", dueDate: '12/12/2012', completed: true },
-  { id: 1, title: "Task One", dueDate: '12/12/2012', completed: false },
-  { id: 2, title: "Task Two", dueDate: '12/12/2012', completed: false },
-  { id: 3, title: "Task Three", dueDate: '12/12/2012', completed: false },
+  { id: 4, title: "Task One", dueDate: '12/12/2012', completed: false },
+  { id: 5, title: "Task Two", dueDate: '12/12/2012', completed: false },
+  { id: 6, title: "Task Three", dueDate: '12/12/2012', completed: false },
 ]
 
 const initTask = { id: 0, title: "", dueDate: "", completed: false };
