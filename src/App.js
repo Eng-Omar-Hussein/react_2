@@ -11,65 +11,6 @@ const TASKS = [
   { id: 3, title: "Task Three", dueDate: '12/12/2012', completed: false },
 ]
 
-
-// let currentID = 0;
-// let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
-// function getNextId() {
-//   let maxId = 0;
-//   for (let i = 0; i < todoList.length; i++) {
-//     if (todoList[i].id > maxId) {
-//       maxId = todoList[i].id;
-//     }
-//   }
-
-//   return ++maxId;
-// }
-
-// const saveTodoList = () => {
-//   localStorage.setItem('todoList', JSON.stringify(todoList));
-// };
-
-// function addTodo(text, dueDate, completedOrNot) {
-//   let newTodo = { id: getNextId(), title: text, todoDueDate: dueDate, completed: completedOrNot };
-//   todoList.push(newTodo);
-// }
-
-// const handleEditTodo = (text, dueDate, completedOrNot) => {
-//   todoList = todoList.map(todo => {
-//     if (todo.id === currentID) {
-//       todo.title = text;
-//       todo.todoDueDate = dueDate;
-//       todo.completed = completedOrNot;
-//     }
-//     return todo;
-//   });
-//   todoSubmitButton.innerText = "Add Task";
-//   currentID = 0;
-// };
-// function deleteTodo(id) {
-//   todoList = todoList.filter(todo => todo.id !== id);
-//   renderTodoList();
-//   saveTodoList();
-// }
-
-// function editTodo(id) {
-//   let selectedTodo = todoList.find(todo => todo.id === id);
-//   if (selectedTodo) {
-//     currentID = selectedTodo.id;
-//     todoInput.value = selectedTodo.title;
-//     todoDate.value = selectedTodo.todoDueDate;
-//     checkForComplete.checked = selectedTodo.completed;
-//     todoSubmitButton.innerText = "Edit Todo";
-//   }
-// };
-// function completeTodo(id) {
-//   const todoExists = todoList.find(todo => todo.id === id);
-//   if (todoExists) {
-//     todoExists.completed = !todoExists.completed;
-//     renderTodoList();
-//     saveTodoList();
-//   }
-// }
 const initTask = { id: 0, title: "", dueDate: "", completed: false };
 function App() {
   let [list, setList] = useState(TASKS);
