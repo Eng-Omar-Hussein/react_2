@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TodoFormComponent from "./components/todo/TodoFormComponent";
 import TodoListComponent from "./components/todo/TodoListComponent";
-
+import style from "./components/todo/TodoStyles.module.css";
 const TASKS = [
   { id: 1, title: "Task One", dueDate: '12/12/2012', completed: true },
   { id: 2, title: "Task Two", dueDate: '12/12/2012', completed: true },
@@ -25,7 +25,7 @@ function App() {
     return ++maxId;
   }
   const addTodo = () => {
-    setList([...list, { ...obj, id: getNextId() }]);
+    setList([...list.filter(task=>obj.id!==task.id), { ...obj, id: obj.id?obj.id:getNextId() }]);
     setObj(initTask);
   }
   const deleteTodo = (id) => {
@@ -39,12 +39,18 @@ function App() {
         : todo
     ));
   }
+  const editTodo = (task) => {
+    setObj({
+      ...task,
+      dueDate: new Date(task.dueDate).toISOString().slice(0, 10)
+    });
+  }
   return (
-    <div className="container todo-container">
+    <div className={`container todo-container col-12 col-sm-8 col-md-7 col-lg-6 col-xl-5 ${style.background}`}>
       <h1 className="text-center">To-Do Application</h1>
       <TodoFormComponent obj={obj} setObj={setObj} addTodo={addTodo} />
-      <TodoListComponent title="Pending Tasks" tasks={list.filter((task) => !task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} />
-      <TodoListComponent title="Completed Tasks" tasks={list.filter((task) => task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} />
+      <TodoListComponent title="Pending Tasks" tasks={list.filter((task) => !task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} editTodo={editTodo} />
+      <TodoListComponent title="Completed Tasks" tasks={list.filter((task) => task.completed)} deleteTodo={deleteTodo} completeTodo={completeTodo} editTodo={editTodo} />
     </div>
   );
 
