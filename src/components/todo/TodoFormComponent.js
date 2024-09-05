@@ -24,7 +24,7 @@ const TodoFormComponent = (props) => {
       
       <div className="d-grid my-4">
         <button id="savaTodo" className="btn btn-primary" type="submit">
-          Add Task
+          {obj.id ? "Edit Task" : "Add Task"}
         </button>
       </div>
     </form>
